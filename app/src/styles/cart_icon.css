@@ -1,0 +1,45 @@
+.cart-container button {
+    display: flex;
+    align-items: center;
+    padding: 12px 32px;
+    text-decoration: none;
+    color: #04030f;
+    font-size: 28px;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .cart-container button svg {
+    margin-left: 8px;
+    font-size: 30px;
+  }
+  .cart-container:hover {
+    background-color: #b9bab8;
+  }
+  .cart-container {
+    display: flex;
+  }
+  .cart-container a, 
+  .cart-container button {
+    margin: auto;
+    background-color: unset;
+    border: unset;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  .cart-container a span:first-child, 
+  .cart-container button span:first-child {
+    padding-right: 8px;
+  }
+  .cart-container a span:first-child[data-items]::after, 
+  .cart-container button span:first-child[data-items]::after {
+    position: relative;
+    content: attr(data-items);
+    font-size: 12px;
+    background-color: #ff0022;
+    padding: 2px 4px;
+    border-radius: 50%;
+    top: -8px;
+    right: -4px;
+  }
+  

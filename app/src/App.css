@@ -1,0 +1,131 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+header {
+  margin: 0px;
+  padding: 10px 50px;
+  background-color: #edfdfb;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 15px 10px -15px #04030f;
+  position:sticky;
+  /* z-index: 1024; */
+  top: 0;
+  height: 15vh;
+  width:100%;
+  box-sizing: border-box;
+};
+
+.product-list {
+  padding: 2%;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.product-list-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-card {
+  margin:2%;
+  cursor: pointer;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 16.66%;
+  min-width: 200px;
+  border-radius:10px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: box-shadow 0.3s ease;
+  /* transition: 0.3s; */
+  overflow: hidden;
+};
+
+.item-card:hover {
+  cursor: pointer;
+  box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.4);
+}
+
+.item-card:hover .item-image img{
+  transform: scale3d(1.5, 1.5, 0.5);
+  transition: transform 4s ease-in-out;
+  overflow: hidden;
+}
+
+
+.item-image{
+  overflow: hidden;
+  border-radius:0.5em;
+  margin-top: 16px;
+}
+
+.item-image img{
+  display: block;
+  height: 150px;
+  width: 150px;
+  overflow: hidden;
+}
+
+.item-details{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.item-details button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: #edfdfb;
+  background-color: #04030f;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  border-radius:0px 0px 10px 10px;
+}
+
+.item-details button:hover {
+  background-color: #edfdfb;
+  color: #04030f;
+}
+
+.item-cart{
+  width:100%;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #edfdfb;  
+  color: #04030f;
+}
+
+.item-cart .btn-left{
+  width:20%;
+  border-radius:0px 0px 0px 10px
+}
+
+.item-cart .btn-right{
+  width:20%;
+  border-radius:0px 0px 10px 0px
+}
+
+@import url("./styles/navbar.css");
+@import url("./styles/cart_icon.css");
+@import url("./styles/modal.css");
+@import url("./styles/cart.css");
+@import url("./styles/loader.css");
+@import url("./styles/about.css");
+@import url("./styles/footer.css");
+@import url("./styles/login_button.css");
+@import url("./styles/login.css");
+@import url("./styles/page_not_found.css")
