@@ -13,7 +13,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
   return (
     <>      
-      <Router>
+      <Router basename="/food-delivery-app">
         <div>
           <Header/>
           <Navbar/>

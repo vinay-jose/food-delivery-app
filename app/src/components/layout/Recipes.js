@@ -1,14 +1,11 @@
 import { useState, useEffect } from "react";
-// import { useParams } from "react-router-dom";
 import axios from "axios"; 
 import Loader from "../utils/Loader";
-// import ListItems from "../utils/ListItems";
   
 
 const Recipes = () => {
     const [recipes, setRecipes] = useState([]);
     const [loader, setLoader] = useState(true);
-    // const [showRecipeModal, setShowRecipeModal] = useState(false);
 
     useEffect(() => {
         async function getRecipes(){

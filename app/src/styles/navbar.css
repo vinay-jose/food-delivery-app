@@ -11,8 +11,8 @@
     /* flex-wrap: wrap; */
     justify-content: left;
     align-items: center;
-    font-size: 1.5em;
-    background-color: #f8e9f2;
+    font-size: 1.2em;
+    background-color: white;
     margin: 0px;
     padding: 0 0px;
     box-shadow: 0 15px 10px -15px #04030f;
@@ -36,13 +36,13 @@
     color: #04030f;
     text-decoration: none;
     text-align: center;
-    border-radius:10px;
+    border-radius:0px;
   }
   
   .navbar-item:hover{
-    background-color: #edfdfb;
+    background-color: #f8e9f2;
     color: #04030f;
-    border-radius: 10px;
+    border-radius: 0px;
   }
   
   @media screen and (max-width: 480px) {

@@ -1,13 +1,16 @@
 import { Fragment, useState } from "react";
-import { useLocation, NavLink } from "react-router-dom";
+import { useLocation, useNavigate, NavLink } from "react-router-dom";
 
 const Auth = () => {
     const [details, setDetails] = useState({
+        name: "",
         email: "",
-        password: ""
+        password: "",
+        cnf_password: ""
     })
 
     const location = useLocation()
+    const navigate = useNavigate()
 
     const handleInput = e => {
         setDetails({
@@ -16,8 +19,10 @@ const Auth = () => {
         })
     }
 
-    const handleSubmission = () => {
+    const handleSubmission = (event) => {
+        event.preventDefault()
         console.log(details)
+        navigate("/")
     }
 
     return (
@@ -29,12 +34,25 @@ const Auth = () => {
                         <NavLink to={"/signup"}><h3>Signup</h3></NavLink>
                     </div>
                     <form autoComplete={"off"} onSubmit={handleSubmission}>
+                        {
+                            location.pathname === "/signup" &&
+                            <div className="input-wrap">
+                                <label htmlFor="name">Name</label>
+                                <input 
+                                    type="text" 
+                                    name="name" 
+                                    placeholder="Enter your name" 
+                                    value={details.name} 
+                                    onChange={handleInput}
+                                />
+                            </div>
+                        }
                         <div className="input-wrap">
                             <label htmlFor="email">Email</label>
                             <input 
                                 type="text" 
                                 name="email" 
-                                placeholder="Enter Email" 
+                                placeholder="Enter email" 
                                 value={details.email} 
                                 onChange={handleInput}
                             />
@@ -44,17 +62,28 @@ const Auth = () => {
                             <input 
                                 type="password" 
                                 name="password" 
-                                placeholder="Enter Password" 
+                                placeholder="Enter password" 
                                 value={details.password}
                                 onChange={handleInput}
                             />
                         </div>
+                        {
+                            location.pathname === "/signup" &&
+                            <div className="input-wrap">
+                                <label htmlFor="cnf_password">Re-enter password</label>
+                                <input 
+                                    type="text" 
+                                    name="cnf_password" 
+                                    placeholder="Re-enter your password" 
+                                    value={details.cnf_password} 
+                                    onChange={handleInput}
+                                />
+                            </div>
+                        }
                         <div className="button-wrap">
-                            <NavLink to="/">
-                                <button className="login-btn">
-                                    {location.pathname === "/login" ? "Login" : "Signup"}
-                                </button>
-                            </NavLink>
+                            <button type="submit" className="login-btn" >
+                                {location.pathname === "/login" ? "Login" : "Signup"} 
+                            </button>
                         </div>
                     </form>
                 </div>
