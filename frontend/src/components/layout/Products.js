@@ -11,7 +11,7 @@ const Products = () => {
   useEffect(() => {
     async function getProducts(){
       try{
-        const response = await axios.get('http://localhost:3001/api/dishes')
+        const response = await axios.get('https://food-delivery-app-3bvt.vercel.app/api/dishes')
         console.log(response.data)
         setProducts(response.data)
         setLoader(false)

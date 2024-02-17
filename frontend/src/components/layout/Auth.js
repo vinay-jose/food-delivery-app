@@ -28,7 +28,7 @@ const Auth = () => {
         event.preventDefault()
         async function handleUser(){
             try{
-                const response = await axios.post(`http://localhost:3001/api/user/${location.pathname}`, details)
+                const response = await axios.post(`https://food-delivery-app-3bvt.vercel.app/api/user/${location.pathname}`, details)
                 console.log(response.data)
                 dispatch(loginUser({
                     name: response.data.user.name,
