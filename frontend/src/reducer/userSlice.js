@@ -6,7 +6,9 @@ export const userSlice = createSlice({
   name: 'user',
   initialState: {
     items: [],
-    totalAmount: 0
+    totalAmount: 0,
+    userToken: "",
+    userName: ""
   },
   reducers: {
     addItem: (state, action) => {
@@ -53,11 +55,20 @@ export const userSlice = createSlice({
     clearCart: state => {
       state.items = []
       state.totalAmount = 0
+    },
+    loginUser: (state, action) => {
+      const { payload } = action
+      state.userToken = payload.token
+      state.userName = payload.name
+    },
+    logoutUser: state => {
+      state.userToken = ""
+      state.userName = ""
     }
   }
 })
 
 // Action creators are generated for each case reducer function
-export const { addItem, removeItem, clearCart } = userSlice.actions
+export const { addItem, removeItem, clearCart, loginUser, logoutUser } = userSlice.actions
 
 export default userSlice.reducer

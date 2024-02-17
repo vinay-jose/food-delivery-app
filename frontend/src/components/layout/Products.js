@@ -94,6 +94,7 @@ const Products = () => {
     }
     getProducts()
   }, [])
+  
   return (
       <>
         {

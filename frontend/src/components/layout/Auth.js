@@ -1,5 +1,9 @@
 import { Fragment, useState } from "react";
 import { useLocation, useNavigate, NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import axios from "axios";
+
+import { loginUser } from "../../reducer/userSlice";
 
 const Auth = () => {
     const [details, setDetails] = useState({
@@ -11,6 +15,7 @@ const Auth = () => {
 
     const location = useLocation()
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const handleInput = e => {
         setDetails({
@@ -21,6 +26,21 @@ const Auth = () => {
 
     const handleSubmission = (event) => {
         event.preventDefault()
+        async function handleUser(){
+            try{
+                const response = await axios.post(`http://localhost:3001/api/user/${location.pathname}`, details)
+                console.log(response.data)
+                dispatch(loginUser({
+                    name: response.data.user.name,
+                    token: response.data.token
+                }))
+            }
+            catch(error){
+                alert(error)
+            }
+            
+        }
+        handleUser()
         console.log(details)
         navigate("/")
     }
@@ -72,7 +92,7 @@ const Auth = () => {
                             <div className="input-wrap">
                                 <label htmlFor="cnf_password">Re-enter password</label>
                                 <input 
-                                    type="text" 
+                                    type="password" 
                                     name="cnf_password" 
                                     placeholder="Re-enter your password" 
                                     value={details.cnf_password} 
